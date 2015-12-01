@@ -3,36 +3,54 @@ package cbr;
 import cbr.client.DailyInfo;
 import cbr.client.DailyInfoSoap;
 import cbr.client.GetCursOnDateXMLResponse;
-import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
-import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
-import scala.xml.Source;
-import scala.xml.parsing.XhtmlParser;
+import com.google.gson.Gson;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 
-public class Launcher
-{
-    public static void main(String[] args)
-    {
-        System.out.println("hello!");
+/**
+ * Created by rgordeev on 01.12.15.
+ */
+public class Launcher {
+    public static void main(String[] args) {
+        try {
+            read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    public static void read() throws Exception {
         DailyInfoSoap service = new DailyInfo().getDailyInfoSoap();
-        Calendar c = new GregorianCalendar(2015, 10, 30);
-        GetCursOnDateXMLResponse.GetCursOnDateXMLResult list = service.getCursOnDateXML(new XMLGregorianCalendarImpl((GregorianCalendar) c));
+
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(2015, 10, 30); // 2015-11-30 // month starts from 0
+        DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
+        // init date by certain value
+        XMLGregorianCalendar date = datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
+        // or request latest date from SOAP service
+        //date = service.getLatestDateTime();
 
 
-        //new XhtmlParser(list.getContent().get(0))
-        ElementNSImpl root = (ElementNSImpl)list.getContent().get(0);
+        // request currency on the date
+        GetCursOnDateXMLResponse.GetCursOnDateXMLResult result = service.getCursOnDateXML(date);
 
-        root.getOwnerDocument();
-        System.out.println(new SimpleDateFormat("YYYY-MM-dd").format(c.getTime()));
+        GetCursOnDateAccessor.Currency currency;
+        GetCursOnDateAccessor accessor = GetCursOnDateAccessor.getInstance();
 
-        System.out.println(service.getLatestDate());
 
-        System.out.println(list.toString());
+
+        // get the same currency (USD) by character code and numeric code
+        // and print it as a json using Gson as a serializer
+
+        Gson gson = new Gson();
+
+        currency = accessor.getCurrencyByVchCode("USD", result);
+        System.out.println(gson.toJson(currency));
+
+        currency = accessor.getCurrencyByVCode("840", result);
+        System.out.println(gson.toJson(currency));
 
     }
 }
