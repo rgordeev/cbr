@@ -1,0 +1,14 @@
+apply plugin : 'java'
+apply plugin : 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.4'
+    compile 'org.scala-lang:scala-reflect:2.11.4'
+    compile 'org.scala-lang:scala-compiler:2.11.4'
+    compile 'org.scalatest:scalatest_2.11:2.2.1'
+    compile 'junit:junit:4.4'
+}
