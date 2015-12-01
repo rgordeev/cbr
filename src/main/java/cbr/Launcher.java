@@ -3,6 +3,7 @@ package cbr;
 import cbr.client.DailyInfo;
 import cbr.client.DailyInfoSoap;
 import cbr.client.GetCursOnDateXMLResponse;
+import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 import scala.xml.Source;
 import scala.xml.parsing.XhtmlParser;
@@ -23,8 +24,10 @@ public class Launcher
         GetCursOnDateXMLResponse.GetCursOnDateXMLResult list = service.getCursOnDateXML(new XMLGregorianCalendarImpl((GregorianCalendar) c));
 
 
-        new XhtmlParser(list.getContent().get(0))
+        //new XhtmlParser(list.getContent().get(0))
+        ElementNSImpl root = (ElementNSImpl)list.getContent().get(0);
 
+        root.getOwnerDocument();
         System.out.println(new SimpleDateFormat("YYYY-MM-dd").format(c.getTime()));
 
         System.out.println(service.getLatestDate());
