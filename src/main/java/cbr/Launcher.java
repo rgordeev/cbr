@@ -23,6 +23,15 @@ public class Launcher {
     }
 
     public static void read() throws Exception {
+
+        // uncomment following code to log http requests to console
+        /*
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+        */
+
         DailyInfoSoap service = new DailyInfo().getDailyInfoSoap();
 
         GregorianCalendar gregorianCalendar = new GregorianCalendar(2015, 10, 30); // 2015-11-30 // month starts from 0
