@@ -8,10 +8,7 @@
                   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   targetNamespace="http://web.cbr.ru/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns="http://www.w3schools.com"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://www.w3schools.com schma1.xsd">
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Веб сервис для получения ежедневных данных ver 13.10.2015</wsdl:documentation>
     <wsdl:types>
         <s:schema elementFormDefault="qualified" targetNamespace="http://web.cbr.ru/">
@@ -1394,11 +1391,26 @@
                 <s:complexType>
                     <s:sequence>
                         <s:element minOccurs="0" maxOccurs="1" name="GetCursOnDateXMLResult">
-                            <!--<s:complexType mixed="true">-->
-                            <!--<s:sequence>-->
-                            <!--<xsi:ValuteData/>-->
-
-                            <s:complexType mixed="true" id="ValuteData">
+                            <s:complexType>
+                            <s:element name="ValuteData">
+                                <s:complexType>
+                                    <s:choice minOccurs="0" maxOccurs="unbounded">
+                                        <s:element name="ValuteCursOnDate">
+                                            <s:complexType>
+                                                <s:sequence>
+                                                    <s:element name="Vname" type="s:string" minOccurs="0"/>
+                                                    <s:element name="Vnom" type="s:decimal" minOccurs="0"/>
+                                                    <s:element name="Vcurs" type="s:decimal" minOccurs="0"/>
+                                                    <s:element name="Vcode" type="s:int" minOccurs="0"/>
+                                                    <s:element name="VchCode" type="s:string" minOccurs="0"/>
+                                                </s:sequence>
+                                            </s:complexType>
+                                        </s:element>
+                                    </s:choice>
+                                </s:complexType>
+                            </s:element>
+                            </s:complexType>
+                            <!--<s:complexType mixed="true" id="ValuteData">
                                 <s:choice minOccurs="0" maxOccurs="unbounded">
                                     <s:element name="ValuteCursOnDate">
                                         <s:complexType>
@@ -1412,15 +1424,29 @@
                                         </s:complexType>
                                     </s:element>
                                 </s:choice>
-                                <!--</s:complexType>-->
-
-                                <!--<s:any />-->
-                                <!--</s:sequence>-->
-                            </s:complexType>
+                            </s:complexType>-->
                         </s:element>
                     </s:sequence>
                 </s:complexType>
             </s:element>
+
+            <!--<s:element name="GetCursOnDateXMLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetCursOnDateXMLResult">
+                            <s:complexType     mixed="true"   id="ValuteData">
+                                <s:sequence>
+                                    <s:element name="Vname"   type="s:string"  minOccurs="0"/>
+                                    <s:element name="Vnom"    type="s:decimal" minOccurs="0"/>
+                                    <s:element name="Vcurs"   type="s:decimal" minOccurs="0"/>
+                                    <s:element name="Vcode"   type="s:int"     minOccurs="0"/>
+                                    <s:element name="VchCode" type="s:string"  minOccurs="0"/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>-->
             <s:element name="GetSeldCursOnDateXML">
                 <s:complexType>
                     <s:sequence>

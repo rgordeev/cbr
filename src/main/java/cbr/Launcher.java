@@ -46,6 +46,12 @@ public class Launcher {
         GetCursOnDateAccessor.Currency currency;
         GetCursOnDateAccessor accessor = GetCursOnDateAccessor.getInstance();
 
+        cbr.cl.DailyInfoSoap s = new cbr.cl.DailyInfo().getDailyInfoSoap();
+        XMLGregorianCalendar date1 = s.getLatestDateTime();
+        cbr.cl.GetCursOnDateXMLResponse.GetCursOnDateXMLResult result1 = s.getCursOnDateXML(date);
+
+        cbr.cl.GetCursOnDateResponse.GetCursOnDateResult result2 = s.getCursOnDate(date);
+
 
 
         // get the same currency (USD) by character code and numeric code
@@ -61,6 +67,8 @@ public class Launcher {
 
         java.util.List<GetCursOnDateAccessor.Currency> currencies = accessor.listCurrencies(result);
         System.out.println(gson.toJson(currencies));
+
+
 
         /*
         EnumReutersValutesXMLResponse.EnumReutersValutesXMLResult rv = service.enumReutersValutesXML();
