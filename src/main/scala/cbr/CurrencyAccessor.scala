@@ -1,9 +1,10 @@
 package cbr
 
 
+import java.util.{GregorianCalendar, Calendar, Date}
 import javax.xml.datatype.{DatatypeFactory, XMLGregorianCalendar}
 
-import cbr.client.{DailyInfo, DailyInfoSoap, GetCursOnDateXMLResponse}
+import cbr.client.{GetReutersCursOnDateXMLResponse, DailyInfo, DailyInfoSoap, GetCursOnDateXMLResponse}
 import cbr.client.GetReutersCursOnDateXMLResponse.GetReutersCursOnDateXMLResult
 import org.apache.xerces.dom.ElementNSImpl
 import org.w3c.dom.{Node, NodeList}
@@ -19,7 +20,18 @@ object CurrencyAccessor {
         new DailyInfo().getDailyInfoSoap
     }
 
-    def listCurrencies(result: GetCursOnDateXMLResponse.GetCursOnDateXMLResult) = {
+    def getCalendar(date: Date): GregorianCalendar = {
+        val calendar = Calendar.getInstance()
+        calendar.setTime(date)
+        calendar.asInstanceOf[GregorianCalendar]
+    }
+
+    def listCurrencies(onDate: Date) = {
+        val calendar = getCalendar(onDate)
+        val datatypeFactory: DatatypeFactory = DatatypeFactory.newInstance
+        val xmlDate: XMLGregorianCalendar = datatypeFactory.newXMLGregorianCalendar(calendar)
+        val service = getService
+        val result: GetCursOnDateXMLResponse.GetCursOnDateXMLResult = service.getCursOnDateXML(xmlDate)
         val content = result.getContent
         val root: ElementNSImpl = content.head.asInstanceOf[ElementNSImpl]
         // чтобы не обходить дерево по узлам через getFirstChild, проще получить узлы по тегу, а затем подняться вверх и получить остальные атрибуты
@@ -47,7 +59,12 @@ object CurrencyAccessor {
         }
     }
 
-    def listReuters(response: GetReutersCursOnDateXMLResult) = {
+    def listReuters(onDate: Date) = {
+        val calendar = getCalendar(onDate)
+        val datatypeFactory: DatatypeFactory = DatatypeFactory.newInstance
+        val xmlDate: XMLGregorianCalendar = datatypeFactory.newXMLGregorianCalendar(calendar)
+        val service = getService
+        val response: GetReutersCursOnDateXMLResponse.GetReutersCursOnDateXMLResult = service.getReutersCursOnDateXML(xmlDate)
         val content = response.getContent
         val root: ElementNSImpl = content.head.asInstanceOf[ElementNSImpl]
         // чтобы не обходить дерево по узлам через getFirstChild, проще получить узлы по тегу, а затем подняться вверх и получить остальные атрибуты
