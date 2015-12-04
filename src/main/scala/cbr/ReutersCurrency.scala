@@ -18,6 +18,4 @@ package cbr
  * </xs:complexType>
  *
  */
-case class ReutersCurrency(isoCode: Int, quotation: BigDecimal, quatationType: Int) {
-
-}
+case class ReutersCurrency(isoCode: Int, quotation: BigDecimal, quatationType: Int)

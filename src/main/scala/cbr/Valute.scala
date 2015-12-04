@@ -14,6 +14,4 @@ package cbr
  *    </xs:sequence>
  * </xs:complexType>
  */
-case class Valute(vcode: Int, vchCode: String, vcurs: BigDecimal, vnom: BigDecimal, vname: String) {
-
-}
+case class Valute(vcode: Int, vchCode: String, vcurs: BigDecimal, vnom: BigDecimal, vname: String)

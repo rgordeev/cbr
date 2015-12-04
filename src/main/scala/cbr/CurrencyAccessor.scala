@@ -1,7 +1,9 @@
 package cbr
 
 
-import cbr.client.GetCursOnDateXMLResponse
+import javax.xml.datatype.{DatatypeFactory, XMLGregorianCalendar}
+
+import cbr.client.{DailyInfo, DailyInfoSoap, GetCursOnDateXMLResponse}
 import cbr.client.GetReutersCursOnDateXMLResponse.GetReutersCursOnDateXMLResult
 import org.apache.xerces.dom.ElementNSImpl
 import org.w3c.dom.{Node, NodeList}
@@ -12,6 +14,10 @@ import scala.collection.JavaConversions._
  * Created by Roman Gordeev on 04.12.15.
  */
 object CurrencyAccessor {
+
+    def getService = {
+        new DailyInfo().getDailyInfoSoap
+    }
 
     def listCurrencies(result: GetCursOnDateXMLResponse.GetCursOnDateXMLResult) = {
         val content = result.getContent
