@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetReutersCursOnDateResponse xmlns="http://web.cbr.ru/">
+            <GetReutersCursOnDateResult>
+                <xs:schema id="ReutersValutesData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                           xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+                    <xs:element name="ReutersValutesData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"
+                                msprop:OnDate="20151204">
+                        <xs:complexType>
+                            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                <xs:element name="Currency">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="num_code" msdata:Caption="Цифровой ISO код валюты"
+                                                        type="xs:int" minOccurs="0"/>
+                                            <xs:element name="val" msdata:Caption="котировка" type="xs:decimal"
+                                                        minOccurs="0"/>
+                                            <xs:element name="dir" msdata:Caption="0 - прямая котировка 1 - обратная"
+                                                        type="xs:unsignedByte" minOccurs="0"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:schema>
+                <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                                 xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+                    <ReutersValutesData xmlns="">
+                        <Currency diffgr:id="Currency1" msdata:rowOrder="0">
+                            <num_code>8</num_code>
+                            <val>126.7300</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency2" msdata:rowOrder="1">
+                            <num_code>12</num_code>
+                            <val>107.0949</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency3" msdata:rowOrder="2">
+                            <num_code>32</num_code>
+                            <val>9.6847</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency4" msdata:rowOrder="3">
+                            <num_code>44</num_code>
+                            <val>1.0000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency5" msdata:rowOrder="4">
+                            <num_code>48</num_code>
+                            <val>0.3772</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency6" msdata:rowOrder="5">
+                            <num_code>50</num_code>
+                            <val>78.2250</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency7" msdata:rowOrder="6">
+                            <num_code>52</num_code>
+                            <val>1.9950</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency8" msdata:rowOrder="7">
+                            <num_code>60</num_code>
+                            <val>1.0000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency9" msdata:rowOrder="8">
+                            <num_code>64</num_code>
+                            <val>66.6550</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency10" msdata:rowOrder="9">
+                            <num_code>68</num_code>
+                            <val>6.9100</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency11" msdata:rowOrder="10">
+                            <num_code>72</num_code>
+                            <val>0.0925</val>
+                            <dir>1</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency12" msdata:rowOrder="11">
+                            <num_code>84</num_code>
+                            <val>1.9950</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency13" msdata:rowOrder="12">
+                            <num_code>90</num_code>
+                            <val>0.1246</val>
+                            <dir>1</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency14" msdata:rowOrder="13">
+                            <num_code>96</num_code>
+                            <val>1.3974</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency15" msdata:rowOrder="14">
+                            <num_code>108</num_code>
+                            <val>1549.0000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency16" msdata:rowOrder="15">
+                            <num_code>116</num_code>
+                            <val>4057.5000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency17" msdata:rowOrder="16">
+                            <num_code>132</num_code>
+                            <val>102.9000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency18" msdata:rowOrder="17">
+                            <num_code>144</num_code>
+                            <val>143.1500</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency19" msdata:rowOrder="18">
+                            <num_code>152</num_code>
+                            <val>700.9500</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency20" msdata:rowOrder="19">
+                            <num_code>170</num_code>
+                            <val>3143.0000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency21" msdata:rowOrder="20">
+                            <num_code>174</num_code>
+                            <val>436.6000</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency22" msdata:rowOrder="21">
+                            <num_code>188</num_code>
+                            <val>531.1800</val>
+                            <dir>0</dir>
+                        </Currency>
+                        <Currency diffgr:id="Currency23" msdata:rowOrder="22">
+                            <num_code>191</num_code>
+                            <val>7.0165</val>
+                            <dir>0</dir>
+                        </Currency>
+                    </ReutersValutesData>
+                </diffgr:diffgram>
+            </GetReutersCursOnDateResult>
+        </GetReutersCursOnDateResponse>
+    </soap:Body>
+</soap:Envelope>
+
+        <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+                                                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<soap:Body>
+    <GetCursOnDateResponse xmlns="http://web.cbr.ru/">
+        <GetCursOnDateResult>
+            <xs:schema id="ValuteData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                       xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                       xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+                <xs:element name="ValuteData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"
+                            msprop:OnDate="20151204">
+                    <xs:complexType>
+                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                            <xs:element name="ValuteCursOnDate">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Vname" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="Vnom" type="xs:decimal" minOccurs="0"/>
+                                        <xs:element name="Vcurs" type="xs:decimal" minOccurs="0"/>
+                                        <xs:element name="Vcode" type="xs:int" minOccurs="0"/>
+                                        <xs:element name="VchCode" type="xs:string" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+            </xs:schema>
+            <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                             xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+                <ValuteData xmlns="">
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate1" msdata:rowOrder="0">
+                        <Vname>Австралийский доллар</Vname>
+                        <Vnom>1</Vnom>
+                        <Vcurs>49.6341</Vcurs>
+                        <Vcode>36</Vcode>
+                        <VchCode>AUD</VchCode>
+                    </ValuteCursOnDate>
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate2" msdata:rowOrder="1">
+                        <Vname>Азербайджанский манат</Vname>
+                        <Vnom>1</Vnom>
+                        <Vcurs>64.4683</Vcurs>
+                        <Vcode>944</Vcode>
+                        <VchCode>AZN</VchCode>
+                    </ValuteCursOnDate>
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate3" msdata:rowOrder="2">
+                        <Vname>Фунт стерлингов Соединенного королевства</Vname>
+                        <Vnom>1</Vnom>
+                        <Vcurs>101.2403</Vcurs>
+                        <Vcode>826</Vcode>
+                        <VchCode>GBP</VchCode>
+                    </ValuteCursOnDate>
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate4" msdata:rowOrder="3">
+                        <Vname>Армянский драм</Vname>
+                        <Vnom>100</Vnom>
+                        <Vcurs>13.9759</Vcurs>
+                        <Vcode>51</Vcode>
+                        <VchCode>AMD</VchCode>
+                    </ValuteCursOnDate>
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate5" msdata:rowOrder="4">
+                        <Vname>Белорусский рубль</Vname>
+                        <Vnom>10000</Vnom>
+                        <Vcurs>37.2542</Vcurs>
+                        <Vcode>974</Vcode>
+                        <VchCode>BYR</VchCode>
+                    </ValuteCursOnDate>
+                    <ValuteCursOnDate diffgr:id="ValuteCursOnDate6" msdata:rowOrder="5">
+                        <Vname>Болгарский лев</Vname>
+                        <Vnom>1</Vnom>
+                        <Vcurs>36.6458</Vcurs>
+                        <Vcode>975</Vcode>
+                        <VchCode>BGN</VchCode>
+                    </ValuteCursOnDate>
+                </ValuteData>
+            </diffgr:diffgram>
+        </GetCursOnDateResult>
+    </GetCursOnDateResponse>
+</soap:Body>
+
+
+<xs:complexType>
+    <xs:sequence>
+        <xs:element name="Vname" type="xs:string" minOccurs="0"/>
+        <xs:element name="Vnom" type="xs:decimal" minOccurs="0"/>
+        <xs:element name="Vcurs" type="xs:decimal" minOccurs="0"/>
+        <xs:element name="Vcode" type="xs:int" minOccurs="0"/>
+        <xs:element name="VchCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType>
+    <xs:sequence>
+        <xs:element name="num_code" msdata:Caption="Цифровой ISO код валюты"
+                    type="xs:int" minOccurs="0"/>
+        <xs:element name="val" msdata:Caption="котировка" type="xs:decimal"
+                    minOccurs="0"/>
+        <xs:element name="dir" msdata:Caption="0 - прямая котировка 1 - обратная"
+                    type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+</xs:complexType>

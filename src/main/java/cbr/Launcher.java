@@ -43,6 +43,13 @@ public class Launcher {
         // request currency on the date
         GetCursOnDateXMLResponse.GetCursOnDateXMLResult result = service.getCursOnDateXML(date);
 
+        date = service.getLatestReutersDateTime();
+
+        GetReutersCursOnDateResponse.GetReutersCursOnDateResult reuters = service.getReutersCursOnDate(date);
+
+        GetCursOnDateResponse.GetCursOnDateResult cursOnDate = service.getCursOnDate(date);
+
+
         GetCursOnDateAccessor.Currency currency;
         GetCursOnDateAccessor accessor = GetCursOnDateAccessor.getInstance();
 

@@ -3,7 +3,7 @@ package cbr
 import java.util.GregorianCalendar
 import javax.xml.datatype.{XMLGregorianCalendar, DatatypeFactory}
 
-import cbr.client.{GetCursOnDateXMLResponse, DailyInfo, DailyInfoSoap}
+import cbr.client._
 
 /**
  * Created by Roman Gordeev on 04.12.15.
@@ -22,7 +22,12 @@ object Starter {
     //date = service.getLatestDateTime();
     // request currency on the date
     val result: GetCursOnDateXMLResponse.GetCursOnDateXMLResult = service.getCursOnDateXML(date)
-    val l = new CurrencyAccessor().listCurrencies(result)
+    val reuters: GetReutersCursOnDateXMLResponse.GetReutersCursOnDateXMLResult = service.getReutersCursOnDateXML(date);
+    val l = CurrencyAccessor.listCurrencies(result)
+    val l1 = CurrencyAccessor.listReuters(reuters)
+
+    println(l)
+    println(l1)
   }
 
 }
